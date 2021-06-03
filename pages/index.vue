@@ -2,7 +2,6 @@
   <div class="container">
     <div>
       
-      
       <h1 class="title">
         Site de jantes en ligne
       </h1>
