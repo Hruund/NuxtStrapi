@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <ButtonShadow textButton="Se connecter"/>
+      
+      
       <h1 class="title">
-        Nuxt
+        Site de jantes en ligne
       </h1>
       
     </div>
@@ -18,7 +18,7 @@ export default {
       items: []
     }
   },
-  methods () {
+  methods: {
     loadUser()
     {
       this.$axios.$get('products').then((response) => {
