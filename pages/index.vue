@@ -36,12 +36,7 @@ export default {
     }
   },
   methods: {
-    loadUser()
-    {
-      this.$axios.$get('products').then((response) => {
-        this.items = response
-      });
-    }
+    
   },
   destroyed () {
     //

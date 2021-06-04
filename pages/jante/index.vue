@@ -35,7 +35,9 @@
               {{ product.price }} €
             </div>
             <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-              <NuxtLink to="/jante/edit"><BlankButton insider="Modifier"/></NuxtLink>
+              <button  @click="getItem(product.id)" class="mx-5 hover:text-gray-100 hover:bg-blue-300 text-gray-900 font-semibold py-2 px-4 rounded-full shadow">
+                Modifier
+              </button>
             </div>
             <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
               <button @click="deleteProduct(product.id)" type="button" class="rounded-full hover:bg-blue-300 text-gray-900 hover:rounded-full text-red-500 -mr-1 font-bold hover:text-gray-100 flex p-2 sm:-mr-2">
@@ -80,8 +82,11 @@ export default {
     {
       this.$axios.$delete('products/'+id).then((response) => {
         this.items = response;
-        loadProduct();
+        //loadProduct();
       })
+    },
+    getItem(id) {
+      this.$router.push(`products/${id}`)
     }
   },
   destroyed () {

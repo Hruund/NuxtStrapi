@@ -11,36 +11,36 @@
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="mb-3 md:space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2">Nom de la jante<abbr title="required">*</abbr></label>
-                                    <input v-model="name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="name">
+                                    <input v-model="jante.name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="name">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Taille<abbr title="required">*</abbr></label>
-                                    <input v-model="size" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="taille">
+                                    <input v-model="jante.size" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="taille">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Couleur<abbr title="required">*</abbr></label>
-                                    <input v-model="Couleur" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="couleur">
+                                    <input v-model="jante.color" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="couleur">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Prix<abbr title="required">*</abbr></label>
-                                    <input v-model="price" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="prix">
+                                    <input v-model="jante.price" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="prix">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <p class="text-xs text-red-500 text-right my-3">Un champ est obligatoire si, il est suivi d'un
                                 asterisk <abbr title="Required field">*</abbr></p>
                             <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                                <NuxtLink to="/produits"><BlankButton insider="Annuler"/></NuxtLink>
-                                <GreenButton @click="createProduct()" insider="Modifier"/>
+                                <NuxtLink to="/jante/"><BlankButton insider="Annuler"/></NuxtLink>
+                                <GreenButton @click="edit(jante.id)" insider="Modifier"/>
                             </div>
                         </form>
                     </div>
@@ -55,40 +55,30 @@ export default {
   data () {
     return {
       items: [],
-      name: '',
-      size: '',
-      price: '',
-      Couleur: '',
-      error: ''
+      jante: {name: '', size: '', price:'', color:''}
     }
-  },
-  mounted () {
-    this.$axios.$get('products').then((response) => {
-      this.items = response;
-    })
   },
   methods:
   {
-    loadProduct()
-    {
-      this.$axios.$get('products').then((response) => {
-        this.items = response;
-      })
-    },
     edit(id)
     {
       try{
-        this.$axios.$put('products', id, {
-
-        });
+        this.$axios.$put('products', this.jante).then((response) => {
+            console.log("Produit modifié");
+        })
       } catch (error)
       {
-        this.error = erro;
+        this.error = error;
       }
     }
   },
-  destroyed () {
-    //
-  }
+  created() {
+    const id = this.$route.params.id
+    this.$axios.$get(`products/${id}`).then(
+        result => {
+            this.jante = result
+        }
+    )
+}
 }
 </script>
