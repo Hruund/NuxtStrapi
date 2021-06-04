@@ -3,7 +3,7 @@
         <div class="flex flex-col ">
             <div class="bg-white shadow-md rounded-3xl p-5">
                 <div class="flex flex-col sm:flex-row items-center">
-                    <h2 class="font-semibold text-lg mr-auto m-auto">Ajout d'un produit</h2>
+                    <h2 class="font-semibold text-lg mr-auto m-auto">Modifier le produit</h2>
                 </div>
                 <div class="mt-5">
                     <div class="form">
@@ -24,6 +24,13 @@
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
+                                    <label class="font-semibold text-gray-600 py-2">Couleur<abbr title="required">*</abbr></label>
+                                    <input v-model="Couleur" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="couleur">
+                                    <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
+                                </div>
+                            </div>
+                            <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                                <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Prix<abbr title="required">*</abbr></label>
                                     <input v-model="price" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="prix">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
@@ -33,7 +40,7 @@
                                 asterisk <abbr title="Required field">*</abbr></p>
                             <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                 <NuxtLink to="/produits"><BlankButton insider="Annuler"/></NuxtLink>
-                                <GreenButton @click="createProduct()" insider="Ajouter"/>
+                                <GreenButton @click="createProduct()" insider="Modifier"/>
                             </div>
                         </form>
                     </div>
@@ -50,7 +57,9 @@ export default {
       items: [],
       name: '',
       size: '',
-      price: ''
+      price: '',
+      Couleur: '',
+      error: ''
     }
   },
   mounted () {
@@ -73,16 +82,16 @@ export default {
         this.loadProduct();
       })
     },
-    createProduct()
+    edit(id)
     {
-        this.$axios.$post('produits', data).then(res => {
-                console.log("Ajout d'un produit");
-
-                this.$router.push('/produits')
-            }, error => {
-                
-            }
-        )
+      try{
+        this.$axios.$put('products', id, {
+          
+        });
+      } catch (error)
+      {
+        this.error = erro;
+      }
     }
   },
   destroyed () {

@@ -2,8 +2,8 @@
 <div class="bg-gray-50 w-full">
   <div class="container w-2/4">
     <div>
-      <h1 class="title">
-        Site de jantes en ligne
+      <h1 class="title font-bold">
+        SITE DE JANTE EN LIGNE
       </h1>
       <div class="flex flex-col items-center m-8">
         <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 40vh">
@@ -77,7 +77,8 @@ export default {
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 70px;
+  font-style: bold;
   color: #35495e;
   letter-spacing: 1px;
 }

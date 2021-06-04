@@ -33,8 +33,11 @@
             <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
               {{ product.price }} €
             </div>
+            <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+              <NuxtLink to="/edit"><BlankButton insider="Modifier"/></NuxtLink>
+            </div>
             <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-              <button @click="deleteProduct(product.id)" type="button" class="-mr-1 font-bold text-gray-900 hover:text-gray-100 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+              <button @click="deleteProduct(product.id)" type="button" class="rounded-full hover:bg-blue-300 text-gray-900 hover:rounded-full text-red-500 -mr-1 font-bold hover:text-gray-100 flex p-2 sm:-mr-2">
                 X
               </button>
             </div>
@@ -42,7 +45,7 @@
         </div>
       </div>
       <div class="flex text-left mt-10">
-        <NuxtLink to="/addproduct"><BlankButton insider="Ajouter un produit"/></NuxtLink>
+        <NuxtLink to="/jante/add"><BlankButton insider="Ajouter un produit"/></NuxtLink>
       </div>
     </div>
   </div>

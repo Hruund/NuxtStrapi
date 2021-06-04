@@ -3,8 +3,8 @@
         <div class="w-full mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                <NuxtLink to="/produits"><ButtonNavbar insider="Produits"/></NuxtLink>
-                <NuxtLink to="/addproduct"><ButtonNavbar insider="Ajouter un produit"/></NuxtLink>
+                <NuxtLink to="/jante/products"><ButtonNavbar insider="Produits"/></NuxtLink>
+                <NuxtLink to="/jante/add"><ButtonNavbar insider="Ajouter un produit"/></NuxtLink>
             </div>
 
             <div class="ml-5 w-52 flex items-center flex-no-shrink text-white mr-6">
