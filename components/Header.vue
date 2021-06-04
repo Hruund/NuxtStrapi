@@ -13,7 +13,7 @@
             <div class="text-sm lg:flex-grow">
             <NuxtLink to="/"><ButtonNavbar insider="Accueil"/></NuxtLink>
             <NuxtLink to="/login"><ButtonNavbar insider="Catalogues"/></NuxtLink>
-            <NuxtLink to="/login"><ButtonNavbar insider="Tous les produits"/></NuxtLink>
+            <NuxtLink to="/produits"><ButtonNavbar insider="Tous les produits"/></NuxtLink>
             </div>
             <div>
             <NuxtLink to="/login"><ButtonShadow insider="Se connecter"/></NuxtLink>
