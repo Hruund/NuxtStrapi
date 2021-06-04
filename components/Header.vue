@@ -1,22 +1,19 @@
 <template>
-    <nav class="flex max-h-20 bg-gray-100 items-center justify-between bg-teal p-6">
-        <div class="w-52 flex items-center flex-no-shrink text-white mr-6">
-            <img src="../img/japan-racing.png" alt="">
+    <nav id="header" class="bg-gray-700 w-full z-30 top-0 py-1">
+        <div class="w-full mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
-        </div>
-        <div class="block lg:hidden">
-            <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
-            <svg class="h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
-        </div>
-        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div class="text-sm lg:flex-grow">
-            <NuxtLink to="/"><ButtonNavbar insider="Accueil"/></NuxtLink>
-            <NuxtLink to="/login"><ButtonNavbar insider="Catalogues"/></NuxtLink>
-            <NuxtLink to="/produits"><ButtonNavbar insider="Tous les produits"/></NuxtLink>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <NuxtLink to="/produits"><ButtonNavbar insider="Produits"/></NuxtLink>
+                <NuxtLink to="/produits"><ButtonNavbar insider="Ajouter un produit"/></NuxtLink>
             </div>
-            <div>
-            <NuxtLink to="/login"><ButtonShadow insider="Se connecter"/></NuxtLink>
+
+            <div class="ml-5 w-52 flex items-center flex-no-shrink text-white mr-6">
+                <!-- <NuxtLink to="/"><img src="../img/japan-racing.png" alt=""></NuxtLink> -->
+                <NuxtLink to="/"><p class="font-bold">JAPAN-RACING</p></NuxtLink>
+            </div>
+
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+                <NuxtLink to="/login"><ButtonShadow insider="Se connecter"/></NuxtLink>
             </div>
         </div>
     </nav>

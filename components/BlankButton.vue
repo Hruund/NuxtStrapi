@@ -1,5 +1,5 @@
 <template>
-    <button class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+    <button class="mx-5 hover:text-gray-100 hover:bg-blue-300 text-gray-900 font-semibold py-2 px-4 rounded-full shadow">
         {{insider}}
     </button>
 </template>

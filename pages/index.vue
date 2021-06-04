@@ -104,4 +104,8 @@ export default {
 .snap-start {
   scroll-snap-align: start;
 }
+
+.body {
+  background-color: bisque;
+}
 </style>
