@@ -11,7 +11,7 @@
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-            <NuxtLink to="/login"><ButtonNavbar insider="Accueil"/></NuxtLink>
+            <NuxtLink to="/"><ButtonNavbar insider="Accueil"/></NuxtLink>
             <NuxtLink to="/login"><ButtonNavbar insider="Catalogues"/></NuxtLink>
             <NuxtLink to="/login"><ButtonNavbar insider="Tous les produits"/></NuxtLink>
             </div>

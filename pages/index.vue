@@ -1,11 +1,30 @@
 <template>
   <div class="container">
     <div>
-      
       <h1 class="title">
         Site de jantes en ligne
       </h1>
-      
+      <div class="flex flex-col items-center m-8">
+        <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 40vh">
+          <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-1">
+            <img src="../img/slide1.jpg" class="h-full w-full object-contain absolute inset-0 z-10">
+          </div>
+          <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-2">
+            <img src="../img/slide2.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
+          </div>
+          <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-3">
+            <img src="../img/slide3.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
+          </div>
+        </div>
+        <div class="flex mt-8">
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-1">1</a>
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-2">2</a>
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-3">3</a>
+        </div>
+      </div>
+      <div class="mt-12">
+        <NuxtLink to="/"><ButtonRed insider="Découvrez notre gamme complète"/></NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -74,5 +93,15 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.snap-x {
+    scroll-snap-type: x mandatory;
+    
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-start {
+  scroll-snap-align: start;
 }
 </style>
