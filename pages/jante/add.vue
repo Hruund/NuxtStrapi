@@ -7,32 +7,32 @@
                 </div>
                 <div class="mt-5">
                     <div class="form">
-                        <form method="post">
+                        <form method="post" @submit.prevent="addProduct">
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="mb-3 md:space-y-2 w-full text-xs">
                                     <label class="font-semibold text-gray-600 py-2">Nom de la jante<abbr title="required">*</abbr></label>
-                                    <input v-model="name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="name">
+                                    <input v-model="form.name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="name">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Taille<abbr title="required">*</abbr></label>
-                                    <input v-model="size" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="taille">
+                                    <input v-model="form.size" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="taille">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Couleur<abbr title="required">*</abbr></label>
-                                    <input v-model="Couleur" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="couleur">
+                                    <input v-model="form.color" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="couleur">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="w-full flex flex-col mb-3">
                                     <label class="font-semibold text-gray-600 py-2">Prix<abbr title="required">*</abbr></label>
-                                    <input v-model="price" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="prix">
+                                    <input v-model="form.price" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" id="prix">
                                     <p class="text-red text-xs hidden">Veuillez remplir ce champ.</p>
                                 </div>
                             </div>
@@ -55,46 +55,17 @@ export default {
   data () {
     return {
       items: [],
-      name: '',
-      size: '',
-      price: '',
-      Couleur: ''
+      form: {name: '', size: '', price:'', color:''}
     }
-  },
-  mounted () {
-    this.$axios.$get('products').then((response) => {
-      this.items = response;
-    })
   },
   methods:
   {
-    loadProduct()
-    {
-      this.$axios.$get('products').then((response) => {
-        this.items = response;
-      })
-    },
-    deleteProduct(id)
-    {
-      this.$axios.$delete('products/'+id).then((response) => {
-        this.items = response;
-        this.loadProduct();
-      })
-    },
-    login() {
+    addProduct() {
         try {
-            // Enregistrement de l'utilisateur
-            this.$axios.$post('products', {
-                data: {
-                    name: this.name,
-                    size: this.size,
-                    price: this.price,
-                    Couleur: this.Couleur
-                }
+            this.$axios.$post('products', this.form).then((response) => {
+                console.log("Produit ajouté");
             })
-        console.log("Produit ajouté");
-
-        this.$router.push('/produits')
+            this.$router.push('/jante/products')
         } catch (e) {
             this.error = e.response.data.message
         }

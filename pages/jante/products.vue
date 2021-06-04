@@ -12,10 +12,11 @@
           <div class="flex items-center justify-between flex-wrap">
             <div class="w-0 flex-1 flex items-center">
 
-              <img class=" flex p-2 shadowobject-cover h-12 rounded-full border border-gray-100" :src=" 'http://localhost:1337'+product.image.formats.thumbnail.url">
+              <img v-if="product.image" class=" flex p-2 shadowobject-cover h-12 rounded-full border border-gray-100" :src=" 'http://localhost:1337'+product.image.formats.thumbnail.url">
+              <img v-else class=" flex p-2 shadowobject-cover h-12 rounded-full border border-gray-100" src="../../img/no_image.jpg" alt="">
 
               <div class="text-gray-800 items-center font-bold ml-4">
-                {{ product.name }} // 
+                {{ product.name }} |
               </div>
               <div class="text-gray-800 items-center ml-4">
                 <p class="font-bold"> Taille: </p> 
@@ -34,7 +35,7 @@
               {{ product.price }} €
             </div>
             <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-              <NuxtLink to="/edit"><BlankButton insider="Modifier"/></NuxtLink>
+              <NuxtLink to="/jante/edit"><BlankButton insider="Modifier"/></NuxtLink>
             </div>
             <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
               <button @click="deleteProduct(product.id)" type="button" class="rounded-full hover:bg-blue-300 text-gray-900 hover:rounded-full text-red-500 -mr-1 font-bold hover:text-gray-100 flex p-2 sm:-mr-2">
@@ -46,6 +47,10 @@
       </div>
       <div class="flex text-left mt-10">
         <NuxtLink to="/jante/add"><BlankButton insider="Ajouter un produit"/></NuxtLink>
+        <NuxtLink to="/jante/products"><BlankButton @click="loadProduct()" insider="Rafraichir"/></NuxtLink>
+      </div>
+      <div class="flex text-left mt-10">
+        
       </div>
     </div>
   </div>
@@ -75,6 +80,7 @@ export default {
     {
       this.$axios.$delete('products/'+id).then((response) => {
         this.items = response;
+        loadProduct();
       })
     }
   },

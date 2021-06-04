@@ -75,18 +75,11 @@ export default {
         this.items = response;
       })
     },
-    deleteProduct(id)
-    {
-      this.$axios.$delete('products/'+id).then((response) => {
-        this.items = response;
-        this.loadProduct();
-      })
-    },
     edit(id)
     {
       try{
         this.$axios.$put('products', id, {
-          
+
         });
       } catch (error)
       {
