@@ -28,7 +28,7 @@
                 <p class="font-bold"> Couleur: </p> 
               </div>
               <div class="text-gray-800 items-center ml-4">
-                {{ product.Couleur}}
+                {{ product.color}}
               </div>
             </div>
             <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
@@ -83,9 +83,9 @@ export default {
     deleteProduct(id)
     {
       this.$axios.$delete('products/'+id).then((response) => {
-        this.items = response;
+        this.loadProduct();
       })
-      this.loadProduct();
+      
     },
     getItem(id) {
       this.$router.push(`${id}`)
