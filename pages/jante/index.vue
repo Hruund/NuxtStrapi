@@ -49,7 +49,9 @@
       </div>
       <div class="flex text-left mt-10">
         <NuxtLink to="/jante/add"><BlankButton insider="Ajouter un produit"/></NuxtLink>
-        <NuxtLink to="/jante/products"><BlankButton @click="loadProduct()" insider="Rafraichir"/></NuxtLink>
+        <button @click="loadProduct()" class="mx-5 hover:text-gray-100 hover:bg-blue-300 text-gray-900 font-semibold py-2 px-4 rounded-full shadow">
+          Rafraichir
+        </button>
       </div>
       <div class="flex text-left mt-10">
         
@@ -82,11 +84,11 @@ export default {
     {
       this.$axios.$delete('products/'+id).then((response) => {
         this.items = response;
-        //loadProduct();
       })
+      this.loadProduct();
     },
     getItem(id) {
-      this.$router.push(`products/${id}`)
+      this.$router.push(`${id}`)
     }
   },
   destroyed () {

@@ -6,7 +6,7 @@
                     <h2 class="font-semibold text-lg mr-auto m-auto">Modifier le produit</h2>
                 </div>
                 <div class="mt-5">
-                    <div class="form">
+                    <div class="form" @submit.prevent="edit(jante.id)">
                         <form method="post">
                             <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                 <div class="mb-3 md:space-y-2 w-full text-xs">
@@ -40,7 +40,7 @@
                                 asterisk <abbr title="Required field">*</abbr></p>
                             <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                 <NuxtLink to="/jante/"><BlankButton insider="Annuler"/></NuxtLink>
-                                <GreenButton @click="edit(jante.id)" insider="Modifier"/>
+                                <GreenButton insider="Modifier"/>
                             </div>
                         </form>
                     </div>
@@ -63,8 +63,9 @@ export default {
     edit(id)
     {
       try{
-        this.$axios.$put('products', this.jante).then((response) => {
+        this.$axios.$put('products/' +id, this.jante).then((response) => {
             console.log("Produit modifié");
+            this.$router.push('/jante/')
         })
       } catch (error)
       {

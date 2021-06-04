@@ -42,7 +42,8 @@ export default {
         return {
             email: '',
             password: '',
-            error: null
+            error: null,
+            user: ''
         }
     },
     methods: {
@@ -51,13 +52,13 @@ export default {
                 // Enregistrement de l'utilisateur
                 this.$auth.loginWith('local', {
                     data: {
-                        email: this.email,
+                        identifier: this.email,
                         password: this.password
                     }
-                })
+                }).then(response => {this.user = response.user.email})
             console.log("Vous êtes connectée");
 
-            this.$router.push('/')
+            this.$router.push('/jante/')
             } catch (e) {
                 this.error = e.response.data.message
             }

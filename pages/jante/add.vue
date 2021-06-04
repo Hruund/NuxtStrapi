@@ -39,7 +39,7 @@
                             <p class="text-xs text-red-500 text-right my-3">Un champ est obligatoire si, il est suivi d'un
                                 asterisk <abbr title="Required field">*</abbr></p>
                             <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                                <NuxtLink to="/produits"><BlankButton insider="Annuler"/></NuxtLink>
+                                <NuxtLink to="/jante/"><BlankButton insider="Annuler"/></NuxtLink>
                                 <GreenButton insider="Ajouter"/>
                             </div>
                         </form>
@@ -65,7 +65,7 @@ export default {
             this.$axios.$post('products', this.form).then((response) => {
                 console.log("Produit ajouté");
             })
-            this.$router.push('/jante/products')
+            this.$router.push('/jante/')
         } catch (e) {
             this.error = e.response.data.message
         }
