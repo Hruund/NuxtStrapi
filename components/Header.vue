@@ -4,7 +4,7 @@
 
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <NuxtLink to="/produits"><ButtonNavbar insider="Produits"/></NuxtLink>
-                <NuxtLink to="/produits"><ButtonNavbar insider="Ajouter un produit"/></NuxtLink>
+                <NuxtLink to="/addproduct"><ButtonNavbar insider="Ajouter un produit"/></NuxtLink>
             </div>
 
             <div class="ml-5 w-52 flex items-center flex-no-shrink text-white mr-6">

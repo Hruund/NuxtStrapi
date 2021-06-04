@@ -7,37 +7,42 @@
         </h1>
       </div>
     <div class="border-gray-800">
-      <div v-for="products in items" :key="products" class="group shadow-lg hover:bg-white hover:shadow-lg hover:border-transparent bg-gray-100 rounded-full my-4">
+      <div v-for="product in items" :key="product" class="group shadow-lg hover:bg-white hover:shadow-lg hover:border-transparent bg-gray-100 rounded-full my-4">
         <div class="max-w-7xl max-h-20 mx-auto py-3 px-3 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between flex-wrap">
             <div class="w-0 flex-1 flex items-center">
 
-                <img class=" flex p-2 shadowobject-cover h-12 rounded-full border border-gray-100" :src=" 'http://localhost:1337'+products.image.formats.thumbnail.url">
+              <img class=" flex p-2 shadowobject-cover h-12 rounded-full border border-gray-100" :src=" 'http://localhost:1337'+product.image.formats.thumbnail.url">
 
               <div class="text-gray-800 items-center font-bold ml-4">
-                {{ products.Titre }}
+                {{ product.name }} // 
               </div>
-              <div class="text-gray-800 items-center font-bold ml-4">
-                {{ products.Taille }}""
+              <div class="text-gray-800 items-center ml-4">
+                <p class="font-bold"> Taille: </p> 
               </div>
-              <div class="text-gray-800 items-center font-bold ml-4">
-                {{ products.Couleur}}
+              <div class="text-gray-800 items-center ml-4">
+                <p>{{ product.size }}""</p>
+              </div>
+              <div class="text-gray-800 items-center ml-4">
+                <p class="font-bold"> Couleur: </p> 
+              </div>
+              <div class="text-gray-800 items-center ml-4">
+                {{ product.Couleur}}
               </div>
             </div>
             <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-              {{ products.Price }} €
+              {{ product.price }} €
             </div>
             <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-              <button @click="deleteProduct(product.id)" v-on:click="$destroyed" type="button" class="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
-                <p>X</p>
+              <button @click="deleteProduct(product.id)" type="button" class="-mr-1 font-bold text-gray-900 hover:text-gray-100 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
+                X
               </button>
             </div>
           </div>
         </div>
       </div>
       <div class="flex text-left mt-10">
-        <NuxtLink to="/produits"><BlankButton insider="Ajouter un produit"/></NuxtLink>
-        <NuxtLink to="/produits"><BlankButton insider="Modifier un produit"/></NuxtLink>
+        <NuxtLink to="/addproduct"><BlankButton insider="Ajouter un produit"/></NuxtLink>
       </div>
     </div>
   </div>
@@ -55,9 +60,9 @@ export default {
       this.items = response;
     })
   },
-  method:
+  methods:
   {
-    loadCart()
+    loadProduct()
     {
       this.$axios.$get('products').then((response) => {
         this.items = response;
@@ -65,13 +70,13 @@ export default {
     },
     deleteProduct(id)
     {
-      this.$axios.$delete('product/'+id).then((response) => {
+      this.$axios.$delete('products/'+id).then((response) => {
         this.items = response;
       })
     }
   },
   destroyed () {
-    this.$axios.delete('anime-shows/'+this.removeId);
+    //
   }
 }
 </script>

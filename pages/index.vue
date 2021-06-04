@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+<div class="bg-gray-50 w-full">
+  <div class="container w-2/4">
     <div>
       <h1 class="title">
         Site de jantes en ligne
@@ -22,11 +23,9 @@
           <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-3">3</a>
         </div>
       </div>
-      <div class="mt-12">
-        <NuxtLink to="/"><ButtonRed insider="Découvrez notre gamme complète"/></NuxtLink>
-      </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -41,7 +40,7 @@ export default {
     {
       this.$axios.$get('products').then((response) => {
         this.items = response
-      })
+      });
     }
   },
   destroyed () {
