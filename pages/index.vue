@@ -5,22 +5,26 @@
       <h1 class="title font-bold">
         SITE DE JANTE EN LIGNE
       </h1>
+      <img src="../img/slide1.jpg" class="h-full w-full">
+      <div class="mt-6">
+        ___
+      </div>
       <div class="flex flex-col items-center m-8">
         <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 40vh">
           <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-1">
-            <img src="../img/slide1.jpg" class="h-full w-full object-contain absolute inset-0 z-10">
+            <img src="../img/slide2.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
           </div>
           <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-2">
-            <img src="../img/slide2.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
+            <img src="../img/slide4.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
           </div>
           <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-3">
             <img src="../img/slide3.jpg" class="h-full w-full object-cover absolute inset-0 z-10">
           </div>
         </div>
         <div class="flex mt-8">
-          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-1">1</a>
-          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-2">2</a>
-          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-3">3</a>
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-gray-50 flex justify-center items-center hover:bg-gray-200 " href="#slide-1">●</a>
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-gray-50 flex justify-center items-center hover:bg-gray-200" href="#slide-2">●</a>
+          <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-gray-50 flex justify-center items-center hover:bg-gray-200" href="#slide-3">●</a>
         </div>
       </div>
     </div>
